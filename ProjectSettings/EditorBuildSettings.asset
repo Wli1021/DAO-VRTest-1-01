@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Loading Scene.unity
+    path: Assets/Scenes/Opening Scene-0.unity
     guid: 091bcca408455394c9c77a1fa742a6ef
   - enabled: 1
-    path: Assets/Scenes/Welcome Stage.unity
+    path: Assets/Scenes/Square-1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Street.unity
+    path: Assets/Scenes/Street-2.unity
     guid: 1646b06efc2ba0f4db586254e5adaa83
   - enabled: 1
-    path: Assets/Scenes/Meeting Room.unity
+    path: Assets/Scenes/Voting Room-3.unity
     guid: 3d1898059e6e549428597130bb503217
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d91d01839cc6c514e896805df7a24bfa,

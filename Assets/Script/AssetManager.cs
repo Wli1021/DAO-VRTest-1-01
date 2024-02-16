@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class AssetManager : MonoBehaviour
 {
@@ -10,10 +11,30 @@ public class AssetManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
+        if (instance != null && instance != this)
+        {
+            Debug.LogError("Another instance of AssetManager exists and will be destroyed!");
             Destroy(gameObject);
+            return;
+        }
+
+        // Check if the current scene is Scene 2 or later
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex >= 2)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // If this instance is in Scene 0 or Scene 1, we don't make it persistent
+            Destroy(gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
+        // Log or take action when the AssetManager is being destroyed
+        Debug.Log($"AssetManager instance in scene: {SceneManager.GetActiveScene().name} is being destroyed.");
     }
     #endregion
 
@@ -29,6 +50,8 @@ public class AssetManager : MonoBehaviour
     public TMP_Text collectionText;
     public TMP_Text totalVotingPowerText;
 
+    
+    
     void Start()
     {
         coins = 6; // Initial number of coins

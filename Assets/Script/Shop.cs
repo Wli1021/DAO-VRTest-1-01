@@ -75,6 +75,12 @@ public class Shop : MonoBehaviour
             {
                 ShopItemList[i].displayedPrice = (ShopItemList[i].price / 1000) + "K";
             }
+            else if (ShopItemList[i].itemType == ItemType.LandForRent)
+            {
+                ShopItemList[i].displayedPrice = ShopItemList[i].price.ToString() + "/D";
+                buyBtn.transform.GetChild(0).GetComponent<TMP_Text>().text = "RENT";
+               //Debug.Log($"Item {i} Type: {ShopItemList[i].itemType}, Displayed Price: {ShopItemList[i].displayedPrice}");
+            }
             else
             {
                 ShopItemList[i].displayedPrice = ShopItemList[i].price.ToString();
